@@ -2,6 +2,16 @@
 </script>
 
 <script type="text/template" id="pokemon-detail-template">
+  <div class="detail">
+    <img src="<%%= pokemon.escape('image_url') %>"></img>
+    <ul class="poke-details">
+      <li><strong>name:</strong><%%= pokemon.escape('name') %></li>
+      <li><strong>attack:</strong><%%= pokemon.escape('attack') %></li>
+      <li><strong>defense:</strong><%%= pokemon.escape('defense') %></li>
+      <li><strong>moves:</strong><%%= pokemon.escape('moves') %></li>
+      <li><strong>Type:</strong><%%= pokemon.escape('poke_type') %></li>
+    </ul>
+  </div>
 </script>
 
 <script type="text/template" id="toy-list-item-template">
@@ -12,3 +22,13 @@
 
 <script type="text/template" id="pokemon-form-template">
 </script>
+
+var templateCode = $("#pokemon-detail-template").html();
+var templateFn = _.template(templateCode);
+
+var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
+pokemon.fetch({
+  success: function () {
+    $('body').prepend(templateFn({ pokemon: pokemon }));
+  }
+});
