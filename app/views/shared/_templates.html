@@ -1,4 +1,8 @@
 <script type="text/template" id="pokemon-list-item-template">
+  <li class="poke-list-item">
+    Type: <%%= pokemon.escape('poke_type') %><br>
+    Name: <%%= pokemon.escape('name') %>
+  </li>
 </script>
 
 <script type="text/template" id="pokemon-detail-template">
@@ -22,3 +26,14 @@
 
 <script type="text/template" id="pokemon-form-template">
 </script>
+
+<!-- var templateCode = $("#pokemon-list-item-template").html();
+var templateFn = _.template(templateCode);
+
+var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
+pokemon.fetch({
+  success: function () {
+    console.log(templateFn({ pokemon: pokemon }));
+  }
+});
+ -->
