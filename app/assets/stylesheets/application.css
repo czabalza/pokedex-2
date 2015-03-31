@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-ul.poke-details {
+ul.poke-details, ul.toy-details {
   list-style: none;
 }
 * {

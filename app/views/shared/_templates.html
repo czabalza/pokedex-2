@@ -16,24 +16,40 @@
       <li><strong>Type:</strong><%%= pokemon.escape('poke_type') %></li>
     </ul>
   </div>
+  <strong>Toys:</strong>
+  <ul class='toys'>
+  </ul>
 </script>
 
 <script type="text/template" id="toy-list-item-template">
+  <li class="toy-list-item">
+    name: <%%= toy.escape('name') %><br>
+    happiness: <%%= toy.escape('happiness') %><br>
+    price: <%%= toy.escape('price') %><br>
+  </li>
 </script>
 
 <script type="text/template" id="toy-detail-template">
+  <div class="detail">
+    <img src="<%%= toy.escape('image_url')%>"><br>
+    <ul class="toy-details">
+      <li><strong>id:</strong><%%= toy.escape('id') %></li>
+      <li><strong>happiness:</strong><%%= toy.escape('happiness') %></li>
+      <li><strong>name:</strong><%%= toy.escape('name') %></li>
+      <li><strong>price:</strong><%%= toy.escape('price') %></li>
+      <li>
+        <select>
+          <%% pokes.each(function (pokemon) { %>
+            <%% var selected = pokemon.id === toy.get('pokemon_id') ? "selected" : ""; %>
+            <option value="<%%= pokemon.id %>" <%%= selected %>>
+              <%%= pokemon.escape('name') %>
+            </option>
+          <%% }) %>
+        </select>
+      </li>
+    </ul>
+  </div>
 </script>
 
 <script type="text/template" id="pokemon-form-template">
 </script>
-
-<!-- var templateCode = $("#pokemon-list-item-template").html();
-var templateFn = _.template(templateCode);
-
-var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
-pokemon.fetch({
-  success: function () {
-    console.log(templateFn({ pokemon: pokemon }));
-  }
-});
- -->
