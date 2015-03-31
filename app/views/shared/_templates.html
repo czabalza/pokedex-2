@@ -22,13 +22,3 @@
 
 <script type="text/template" id="pokemon-form-template">
 </script>
-
-var templateCode = $("#pokemon-detail-template").html();
-var templateFn = _.template(templateCode);
-
-var pokemon = new Pokedex.Models.Pokemon({ id: 1 });
-pokemon.fetch({
-  success: function () {
-    $('body').prepend(templateFn({ pokemon: pokemon }));
-  }
-});
