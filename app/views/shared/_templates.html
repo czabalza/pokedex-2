@@ -1,7 +1,8 @@
 <script type="text/template" id="pokemon-list-item-template">
-  <li class="poke-list-item">
-    Type: <%%= pokemon.escape('poke_type') %><br>
-    Name: <%%= pokemon.escape('name') %>
+  <li class="poke-list-item"
+      data-id="<%%= pokemon.id %>">
+    Name: <%%= pokemon.escape('name') %><br>
+    Type: <%%= pokemon.escape('poke_type') %>
   </li>
 </script>
 
@@ -22,7 +23,7 @@
 </script>
 
 <script type="text/template" id="toy-list-item-template">
-  <li class="toy-list-item">
+  <li class="toy-list-item" data-toy-id="<%%= toy.id %>">
     name: <%%= toy.escape('name') %><br>
     happiness: <%%= toy.escape('happiness') %><br>
     price: <%%= toy.escape('price') %><br>

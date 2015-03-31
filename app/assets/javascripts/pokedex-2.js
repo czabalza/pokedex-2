@@ -12,11 +12,10 @@ Pokedex.RootView.prototype.addToyToList = function (toy) {
 Pokedex.RootView.prototype.renderToyDetail = function (toy) { // III
   this.$toyDetail.empty();
   var content = JST['toyDetail']({ toy: toy, pokes: this.pokes });
-  var $content = $(content);
-  var $select = $content.find('select');
+  this.$toyDetail.html(content);
+  var $select = $toyDetail.find('select');
   $select.data('toy-id', toy.id);
   $select.data('pokemon-id', toy.escape('pokemon_id'));
-  this.$toyDetail.html($content);
 };
 
 Pokedex.RootView.prototype.selectToyFromList = function (event) {
